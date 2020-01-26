@@ -6,7 +6,8 @@ With the Weekend League Tracker you can track your results from your Weekend Lea
 - Quick overview over your games possible
 - Scrolling through your list of players
 ## Screenshot:
-<img src="img/readme/WLTracker.png" width="200px">
+<img src="img/readme/WLTracker.PNG" width="600px">
+
 ## Features planned:
 - Adding goal scorers and assists
 - Saving data to database
