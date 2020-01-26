@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Weekend League Tracker</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    </head>
+    <body> 
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <img src="img/fut-champions.png" alt="Champs" style="float:left;width:80px;">            
+            <h2>Weekend League Tracker by JJ</h2>
+        </nav>           
+        </div>
+        <div class="content">
+            <input type="text" class="myInput" placeholder="Insert Futbin squad link...">
+            <div class="top">
+                <img src="img/neymar.png" alt="Ney">
+                <img src="img/kent.png" alt="Kent">
+                <img src="img/mboop.png" alt="Mboop">
+                <img src="img/neymar.png" alt="Ney">
+                <img src="img/kent.png" alt="Kent">
+                <img src="img/neymar.png" alt="Ney">
+                <img src="img/kent.png" alt="Kent">
+            </div>
+            <div class="rankDIV">
+                <div class="text">Win Counter:</div>
+                <div class="text" id="winCount">0</div>
+            </div>
+            <div class="rankDIV">
+                <div class="text">Rank:</div>
+                <img id="rankImg" src="img/rank/bronze-3.png" style="float:right;width: 100px;">
+            </div>
+            <div class="btnDIV">
+                <span onclick="resetWins()" class="addBtn">Reset Wins</span>
+                <div class="score">
+                    <button></button>
+                    <input type="number" id="yourScore" value="0" min="0" max="20">
+                    <button></button>
+                    <button></button>
+                    <input type="number" id="opponentScore" value="0" min="0" max="20">
+                    <button></button>
+                </div>
+                <input type="text" class="myInput" id="scoreInput" placeholder="Insert Result... (eg. 3-1, 1-3)">
+                <span onclick="addGame()" class="addBtn">Add</span>
+            </div>          
+            <ol type="1" id="list"></ol>
+        </div>
+       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="js/slick.min.js"></script>
+        <script type="text/javascript" src="js/carousel.js"></script>
+        <script type="text/javascript" src="js/logic.js"></script>
+    </body>
+</html>
+<!-- The core Firebase JS SDK is always required and must be listed first ->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+
+<-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries ->
+<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAPGKKrEdYJ2UwEdBNlpI9iXRUeqLLtxvI",
+    authDomain: "weekend-league-tracker.firebaseapp.com",
+    databaseURL: "https://weekend-league-tracker.firebaseio.com",
+    projectId: "weekend-league-tracker",
+    storageBucket: "weekend-league-tracker.appspot.com",
+    messagingSenderId: "318083892023",
+    appId: "1:318083892023:web:794e35cf336984bffd90b2",
+    measurementId: "G-LYTCYNRD96"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+    </body>
+</html>

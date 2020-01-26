@@ -1,0 +1,131 @@
+img{
+  height: 100% !important;
+} 
+
+body{
+  background: rgba(143, 138, 138, 0.267);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.top{
+  margin: auto;
+  width: 100%;
+}
+
+ /* Style the navbar */
+ .navbar {
+  background-color: #612723;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.navbar > h2{
+  padding: 20px;
+  font-size: 25px;
+}
+
+/* Style the content of the page*/
+.content{
+  margin: 10px;
+}
+
+.btnDIV{
+  margin: auto;
+  max-width: 500px;
+}
+  
+/* Style the list items */
+ol li {
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  transition: 2s;
+  
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}  
+  
+ 
+  /* Clear floats after the header */
+  .header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .penalties-check{
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+  }
+
+  /* Style the input */
+  .myInput {
+    margin: 10px 0 10px 0;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    color: black;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  /* Style the "Add" button */
+  .addBtn {
+    padding: 10px;
+    width: 100%;
+    background: #474747;
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 10px;
+  }
+  
+  .addBtn:hover {
+    background-color: #bbb;
+  }
+
+  .winStyle {
+    background: green;
+    color: white;
+  }
+
+  .lossStyle {
+    background: red;
+    color: white;
+  }
+
+  .rankDIV{
+    margin: auto;
+    width: 80%;
+    max-width: 500px;
+    padding: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .hide{
+    visibility: hidden;
+  }
+
+  #playersDIV{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+  }
