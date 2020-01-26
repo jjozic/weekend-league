@@ -33,7 +33,7 @@ function addGame(){
     //reset fields
     document.getElementById("yourScore").value = 0
     document.getElementById("opponentScore").value = 0
-    document.getElementById("penalties").classList.remove("hide")
+    document.getElementById("penaltiesWon").disabled = false
     document.querySelector('#penaltiesWon').checked = false
 }
 
@@ -100,7 +100,6 @@ function changeNumber(btn, val){
 function checkForPenalties(){
     if (document.getElementById("yourScore").value !== document.getElementById("opponentScore").value){
         document.getElementById("penaltiesWon").disabled = true
-        //document.getElementById("penalties").classList.add("hide")
     }
     else{
         document.getElementById("penaltiesWon").disabled = false

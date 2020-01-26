@@ -99,11 +99,12 @@ ol li {
   .addBtn {
     padding: 10px;
     width: 100%;
-    background: #474747;
+    background: rgb(82, 19, 19);
     color: white;
     display: flex;
     justify-content: center;
     text-align: center;
+    font-weight: bold;
     cursor: pointer;
     transition: 0.5s;
     border-radius: 10px;
@@ -124,6 +125,8 @@ ol li {
   }
 
   .rankDIV{
+    font-weight: bold;
+    color: white;
     margin: auto;
     width: 80%;
     max-width: 500px;
@@ -131,6 +134,14 @@ ol li {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+  }
+
+  .text{
+    padding: 10px;
+    border-radius: 5px;
+    height: 45px;
+    background-color: rgb(82, 19, 19);
+    
   }
   .hide{
     visibility: hidden;
@@ -155,16 +166,20 @@ ol li {
   }
 
   .score > button{
-    background: rgb(128, 128, 128);
+    background: rgb(82, 19, 19);
     width:100%;
     border-radius: 5px;
     touch-action: manipulation;
   }
 
-.penalties{
+#penalties{
   display: flex;
-  justify-content: space-between;
-  padding: 0 50px;
+  justify-content: center;
+  margin: 10px;
+}
+
+#winCount{
+  margin-right: 35px;
 }
 
   /* Chrome, Safari, Edge, Opera */
@@ -181,8 +196,8 @@ input[type=number] {
 
 /*Slider checkbox */
 input[type="checkbox"]{
+  margin-left: 10px;
   background: grey;
-  margin-top: 10px;
   position: relative;
   width: 40px;
   height: 20px;
