@@ -9,6 +9,8 @@ body{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  position: relative;
+  min-height: 100vh;
 }
 
 .top{
@@ -39,11 +41,13 @@ footer{
   position: absolute;
   bottom: 0;
   width: 100%;
+  height: 40px;            /* Footer height */
 }
 
 /* Style the content of the page*/
 .content{
-  margin: 10px;
+  margin: 0px;
+  padding-bottom: 40px;    /* Footer height */
 }
 
 .btnDIV{
