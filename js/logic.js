@@ -10,6 +10,10 @@ function updateScreen(){
     }
 }
 
+function goalScored(){
+    console.log('goal scored by ney')
+}
+
 function addGame(){
     let yourScore = document.getElementById("yourScore").value
     let opponentScore = document.getElementById("opponentScore").value
@@ -18,7 +22,7 @@ function addGame(){
     updateScreen()
     //get the score from the input field
     var t = document.createTextNode(yourScore+'-'+opponentScore)
-    var checkedResult = checkResult()
+    var checkedResult = checkResult(yourScore, opponentScore)
     //if result was entered correctly
     if(checkedResult){
         var li = document.createElement("li")
@@ -33,9 +37,7 @@ function addGame(){
     document.querySelector('#penaltiesWon').checked = false
 }
 
-function checkResult() { 
-    let yourScore = document.getElementById("yourScore").value
-    let opponentScore = document.getElementById("opponentScore").value
+function checkResult(yourScore, opponentScore) { 
     let pensWon = document.querySelector('#penaltiesWon').checked
 
     //win
@@ -52,9 +54,9 @@ function checkResult() {
     }
     //loss
     else if (yourScore<opponentScore) {
-        //TODO: make fixed formatting for the results
         return "lossStyle";
-    } 
+    }
+    //penalty win
     else if(yourScore===opponentScore&&pensWon){
         if(localStorage.winCount){
             localStorage.winCount++
@@ -66,6 +68,7 @@ function checkResult() {
         document.getElementById("winCount").innerHTML = localStorage.winCount
         return "winStyle"
     }
+    //penalty loss
     else if(yourScore===opponentScore&&!pensWon){
         return "lossStyle"
     }
@@ -73,6 +76,7 @@ function checkResult() {
 } 
 
 function resetWins(){
+    //reset localStorage
     localStorage.winCount = 0
     document.getElementById("winCount").innerHTML = localStorage.winCount
     let list = document.getElementById("list")
@@ -82,7 +86,7 @@ function resetWins(){
       }
 }
 
-function changeValue(btn, val){
+function changeNumber(btn, val){
     let currentVal = document.getElementById(btn).value;
     if(val===1&&currentVal<20){
         document.getElementById(btn).value++
@@ -90,6 +94,10 @@ function changeValue(btn, val){
     else if(val===-1&&currentVal>0){
         document.getElementById(btn).value--
     }
+    checkForPenalties()
+}
+
+function checkForPenalties(){
     if (document.getElementById("yourScore").value !== document.getElementById("opponentScore").value){
         document.getElementById("penalties").classList.add("hide")
     }

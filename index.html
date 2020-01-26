@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
         <title>Weekend League Tracker</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/slick.css"/>
@@ -18,10 +18,12 @@
         <div class="content">
             <input type="text" class="myInput" placeholder="Insert Futbin squad link...">
             <div class="top">
-                <img src="img/neymar.png" alt="Ney">
+                <img onclick="goalScored()" src="img/neymar.png" alt="Ney">
                 <img src="img/kent.png" alt="Kent">
                 <img src="img/mboop.png" alt="Mboop">
-                <img src="img/neymar.png" alt="Ney">
+                <img src="img/orsic.png" alt="Orsic">
+                <img src="img/silva.png" alt="Silva">
+                <img src="img/aouar.png" alt="Aouar">
                 <img src="img/kent.png" alt="Kent">
                 <img src="img/neymar.png" alt="Ney">
                 <img src="img/kent.png" alt="Kent">
@@ -37,22 +39,31 @@
             <div class="btnDIV">
                 <span onclick="resetWins()" class="addBtn">Reset Wins</span>
                 <div class="score">
-                    <button onclick="changeValue('yourScore', -1)">-</button>
-                    <input type="number" id="yourScore" value="0" min="0" max="20">
-                    <button onclick="changeValue('yourScore', 1)">+</button>
-                    <button onclick="changeValue('opponentScore', -1)">-</button>
-                    <input type="number" id="opponentScore" value="0" min="0" max="20">
-                    <button onclick="changeValue('opponentScore', 1)">+</button>
+                    <button onclick="changeNumber('yourScore', -1)">-</button>
+                    <input type="number" id="yourScore" value="0" disabled="true">
+                    <button onclick="changeNumber('yourScore', 1)">+</button>
+                    <button onclick="changeNumber('opponentScore', -1)">-</button>
+                    <input type="number" id="opponentScore" value="0" disabled="true">
+                    <button onclick="changeNumber('opponentScore', 1)">+</button>
                 </div>
                 <div id="penalties" >
-                    <h5>Penalties won?</h5>
+                    <label for="penaltiesWon">Penalties won?</label>
                     <input type="checkbox" id="penaltiesWon">
                 </div>
                 <span onclick="addGame()" class="addBtn">Add</span>
-            </div>          
-            <ol type="1" id="list"></ol>
-        </div>
-       
+            </div>        
+            <div class="results">
+                <ol type="1" id="list"></ol>
+            </div>
+            <div class="stats">
+                <span></span>
+            </div> 
+            
+        </div>       
+        <footer>
+            <p>Created by: Julian Jozic</p>
+            <p>Copyright &copy; 2020</p>
+        </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="js/slick.min.js"></script>
@@ -83,6 +94,3 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 </script>
-
-    </body>
-</html>
