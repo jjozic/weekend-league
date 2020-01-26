@@ -158,6 +158,7 @@ ol li {
     background: rgb(128, 128, 128);
     width:100%;
     border-radius: 5px;
+    touch-action: manipulation;
   }
 
 .penalties{

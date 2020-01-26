@@ -81,9 +81,9 @@ function resetWins(){
     document.getElementById("winCount").innerHTML = localStorage.winCount
     let list = document.getElementById("list")
     //removes all the games from the list
-    while( list.firstChild ){
-        list.removeChild( list.firstChild )
-      }
+    while(list.firstChild){
+        list.removeChild(list.firstChild)
+    }
 }
 
 function changeNumber(btn, val){
@@ -99,10 +99,11 @@ function changeNumber(btn, val){
 
 function checkForPenalties(){
     if (document.getElementById("yourScore").value !== document.getElementById("opponentScore").value){
-        document.getElementById("penalties").classList.add("hide")
+        document.getElementById("penaltiesWon").disabled = true
+        //document.getElementById("penalties").classList.add("hide")
     }
     else{
-        document.getElementById("penalties").classList.remove("hide")
+        document.getElementById("penaltiesWon").disabled = false
     }
 }
 
