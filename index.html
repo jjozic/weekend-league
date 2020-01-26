@@ -37,14 +37,17 @@
             <div class="btnDIV">
                 <span onclick="resetWins()" class="addBtn">Reset Wins</span>
                 <div class="score">
-                    <button></button>
+                    <button onclick="changeValue('yourScore', -1)">-</button>
                     <input type="number" id="yourScore" value="0" min="0" max="20">
-                    <button></button>
-                    <button></button>
+                    <button onclick="changeValue('yourScore', 1)">+</button>
+                    <button onclick="changeValue('opponentScore', -1)">-</button>
                     <input type="number" id="opponentScore" value="0" min="0" max="20">
-                    <button></button>
+                    <button onclick="changeValue('opponentScore', 1)">+</button>
                 </div>
-                <input type="text" class="myInput" id="scoreInput" placeholder="Insert Result... (eg. 3-1, 1-3)">
+                <div id="penalties" >
+                    <h5>Penalties won?</h5>
+                    <input type="checkbox" id="penaltiesWon">
+                </div>
                 <span onclick="addGame()" class="addBtn">Add</span>
             </div>          
             <ol type="1" id="list"></ol>

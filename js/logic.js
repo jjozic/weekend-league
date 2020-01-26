@@ -1,120 +1,130 @@
-
-//var winCount = 0;
-updateScreen();
-var isPens = false;
-var result = "0-0";
+updateScreen()
 
 function updateScreen(){
     if(localStorage.winCount){
         document.getElementById("winCount").innerHTML = localStorage.winCount;
     }
-    var rankImg = getRank(localStorage.winCount);
+    var rankImg = getRank(localStorage.winCount)
     if(rankImg){
-        document.getElementById("rankImg").src = rankImg;
+        document.getElementById("rankImg").src = rankImg
     }
 }
 
 function addGame(){
+    let yourScore = document.getElementById("yourScore").value
+    let opponentScore = document.getElementById("opponentScore").value
+
     //draw new changes
-    updateScreen();
+    updateScreen()
     //get the score from the input field
-    var inputValue = document.getElementById("scoreInput").value;
-    var t = document.createTextNode(inputValue);
-    var checkedResult = checkResult(inputValue);
-    //if pen result was added correctly
-    if(checkedResult&&isPens){
-        var li = document.createElement("li");
-        t = document.createTextNode(result + " ("+inputValue+")");
-        li.appendChild(t);
-        li.classList.add(checkedResult);
-        document.getElementById("list").appendChild(li);
-        document.getElementById("scoreInput").placeholder = "Insert Result with your goals first... (eg. 3-1, 1-3)";
-        isPens = false;
+    var t = document.createTextNode(yourScore+'-'+opponentScore)
+    var checkedResult = checkResult()
+    //if result was entered correctly
+    if(checkedResult){
+        var li = document.createElement("li")
+        li.appendChild(t)
+        li.classList.add(checkedResult)
+        document.getElementById("list").appendChild(li)
     }
-    //if result was enterd correctly
-    else if(checkedResult){
-        var li = document.createElement("li");
-        li.appendChild(t);
-        li.classList.add(checkedResult);
-        document.getElementById("list").appendChild(li);
-    }
-    
-    /*
-    if (inputValue === '') {
-        alert("You must write something!");
-    } else {
-        document.getElementById("list").appendChild(li);
-    }*/
-    document.getElementById("scoreInput").value = "";
+    //reset fields
+    document.getElementById("yourScore").value = 0
+    document.getElementById("opponentScore").value = 0
+    document.getElementById("penalties").classList.remove("hide")
+    document.querySelector('#penaltiesWon').checked = false
 }
 
-function resetWins(){
-    localStorage.winCount = 0;
-    document.getElementById("winCount").innerHTML = localStorage.winCount;
-}
+function checkResult() { 
+    let yourScore = document.getElementById("yourScore").value
+    let opponentScore = document.getElementById("opponentScore").value
+    let pensWon = document.querySelector('#penaltiesWon').checked
 
-function checkResult(str) { 
-    matches = str.match(/\d+/g); 
-    var i=0 
-  
     //win
-    if (matches[0]>matches[1]){
+    if (yourScore>opponentScore){
         if(localStorage.winCount){
-            localStorage.winCount++;
+            localStorage.winCount++
         }
         else{
-            localStorage.winCount=1;
+            localStorage.winCount=1
         }
         //set wincount
-        document.getElementById("winCount").innerHTML = localStorage.winCount;
-        return "winStyle";
+        document.getElementById("winCount").innerHTML = localStorage.winCount
+        return "winStyle"
     }
-    //draw -> add penalties score
-    else if (matches[0]==matches[1]) {
-        //var element = document.getElementById("penInput");
-        //element.classList.remove("hide");
-        var input = document.getElementById("scoreInput");
-        input.value = "";
-        input.placeholder = "Add result of penalties here...";
-        result = str;
-        isPens = true;
-        return;
-    } 
     //loss
-    else if (matches[0]<matches[1]) {
+    else if (yourScore<opponentScore) {
         //TODO: make fixed formatting for the results
         return "lossStyle";
     } 
-    return null;
+    else if(yourScore===opponentScore&&pensWon){
+        if(localStorage.winCount){
+            localStorage.winCount++
+        }
+        else{
+            localStorage.winCount=1
+        }
+        //set wincount
+        document.getElementById("winCount").innerHTML = localStorage.winCount
+        return "winStyle"
+    }
+    else if(yourScore===opponentScore&&!pensWon){
+        return "lossStyle"
+    }
+    return null
 } 
+
+function resetWins(){
+    localStorage.winCount = 0
+    document.getElementById("winCount").innerHTML = localStorage.winCount
+    let list = document.getElementById("list")
+    //removes all the games from the list
+    while( list.firstChild ){
+        list.removeChild( list.firstChild )
+      }
+}
+
+function changeValue(btn, val){
+    let currentVal = document.getElementById(btn).value;
+    if(val===1&&currentVal<20){
+        document.getElementById(btn).value++
+    }
+    else if(val===-1&&currentVal>0){
+        document.getElementById(btn).value--
+    }
+    if (document.getElementById("yourScore").value !== document.getElementById("opponentScore").value){
+        document.getElementById("penalties").classList.add("hide")
+    }
+    else{
+        document.getElementById("penalties").classList.remove("hide")
+    }
+}
 
 //for the rank image depending on number of wins
 function getRank(count){
-    var num = parseInt(count);
+    var num = parseInt(count)
     switch (true){
         case num<2:
-            return "img/rank/bronze-3.png";
+            return "img/rank/bronze-3.png"
         case num<4:
-            return "img/rank/bronze-2.png";
+            return "img/rank/bronze-2.png"
         case num<6:
-            return "img/rank/bronze-1.png";
+            return "img/rank/bronze-1.png"
         case num<8:
-            return "img/rank/silver-3.png";
+            return "img/rank/silver-3.png"
         case num<11:
-            return "img/rank/silver-2.png";
+            return "img/rank/silver-2.png"
         case num<14:
-            return "img/rank/silver-1.png";
+            return "img/rank/silver-1.png"
         case num<17:
-            return "img/rank/gold-3.png";
+            return "img/rank/gold-3.png"
         case num<20:
-            return "img/rank/gold-2.png";
+            return "img/rank/gold-2.png"
         case num<23:
-            return "img/rank/gold-1.png";
+            return "img/rank/gold-1.png"
         case num<25:
-            return "img/rank/elite-3.png";
+            return "img/rank/elite-3.png"
         case num<27:
-            return "img/rank/elite-2.png";
+            return "img/rank/elite-2.png"
         case num<30:
-            return "img/rank/elite-1.png";
+            return "img/rank/elite-1.png"
         }
 }
