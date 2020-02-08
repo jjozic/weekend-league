@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
         <title>Weekend League Tracker</title>
+        <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/soccer-ball_26bd.png">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/slick.css"/>
         <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
@@ -28,30 +29,57 @@
                 <img src="img/neymar.png" alt="Ney">
                 <img src="img/kent.png" alt="Kent">
             </div>
-            <div class="rankDIV">
-                <div class="text">Win Counter:</div>
-                <div class="text" id="winCount">0</div>
-            </div>
-            <div class="rankDIV">
-                <div class="text">Rank:</div>
-                <img id="rankImg" src="img/rank/bronze-3.png" style="float:right;width: 100px;">
-            </div>
-            <div class="btnDIV">
-                <span onclick="resetWins()" class="addBtn">Reset Wins</span>
-                <div class="score">
-                    <button onclick="changeNumber('yourScore', -1)">-</button>
-                    <input type="number" id="yourScore" value="0" disabled="true">
-                    <button onclick="changeNumber('yourScore', 1)">+</button>
-                    <button onclick="changeNumber('opponentScore', -1)">-</button>
-                    <input type="number" id="opponentScore" value="0" disabled="true">
-                    <button onclick="changeNumber('opponentScore', 1)">+</button>
+            <div class="container">
+                <div class="rankDIV">
+                    <div class="text">Win Counter:</div>
+                    <div class="text" id="winCount">0</div>
                 </div>
-                <div id="penalties" >
-                    <label for="penaltiesWon">Penalties won?</label>
-                    <input type="checkbox" id="penaltiesWon">
+                <div class="rankDIV">
+                    <div class="text">Rank:</div>
+                    <img id="rankImg" src="img/rank/bronze-3.png" style="float:right;width: 100px;">
                 </div>
-                <span onclick="addGame()" class="addBtn">Add</span>
-            </div>        
+                <div class="btnDIV">
+                    <span onclick="resetWins()" class="addBtn">Reset Wins</span>
+                    <h4>Enter score:</h4>
+                    <div class="score">
+                        <button onclick="changeNumber('yourScore', -1)">-</button>
+                        <input type="number" id="yourScore" value="0" disabled="true">
+                        <button onclick="changeNumber('yourScore', 1)">+</button>
+                        <button onclick="changeNumber('opponentScore', -1)">-</button>
+                        <input type="number" id="opponentScore" value="0" disabled="true">
+                        <button onclick="changeNumber('opponentScore', 1)">+</button>
+                    </div>
+                    <div id="penalties" >
+                        <label for="penaltiesWon">Penalties won?</label>
+                        <input type="checkbox" id="penaltiesWon">
+                    </div>
+                    <div class="players">
+                        <div class="players__header">
+                            <h4>Players:</h4>
+                            <a href="players.html">Edit players:</a>
+                        </div> 
+                        <table class="playertable" style="width:100%">
+                            <tr>
+                              <th>Name</th>
+                              <th>Goals</th>
+                              <th>Assists</th>
+                            </tr>
+                            <tr>
+                              <td>Neymar</td>
+                              <td>0</td>
+                              <td>0</td>
+                            </tr>
+                            <tr>
+                              <td>Mbappe</td>
+                              <td>0</td>
+                              <td>0</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <span onclick="addGame()" class="addBtn">Add</span>
+                </div>  
+            </div>
+                 
             <div class="results">
                 <ol type="1" id="list"></ol>
             </div>
